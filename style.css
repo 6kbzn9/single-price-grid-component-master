@@ -26,14 +26,15 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas: "header header" "subscription why-us";
   /* margin: 6rem auto; */
   width: clamp(300px, 95%, 635px);
   box-shadow: 0 0 15px hsl(218, 22%, 67%, 60%);
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
 }
+
 header {
   grid-area: header;
   padding: 3rem 2.5rem;
@@ -108,4 +109,33 @@ header {
 
 .content {
   line-height: 1.4;
+}
+
+/* mobile layout */
+
+@media (max-width: 667px) {
+  .grid-container {
+    margin: 6rem auto;
+    grid-template-areas: "header header" "subscription why-us";
+  }
+
+  header,
+  .subscription,
+  .why-us {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-areas: "header header" "subscription subscription" "why-us why-us";
+    width: clamp(250px, 92%, 635px);
+  }
+}
+
+@media (max-width: 400px) {
+  .description,
+  .content {
+    font-size: 0.9rem;
+  }
 }
